@@ -1,0 +1,12 @@
+.case {
+    width: 3em;
+    height: 3em;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}

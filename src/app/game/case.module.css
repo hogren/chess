@@ -1,12 +1,20 @@
 .case {
-    width: 3em;
-    height: 3em;
+    width: 5em;
+    height: 5em;
 }
 
 .black {
-    background-color: black;
+    background-color: #555555;
 }
 
 .white {
     background-color: white;
+}
+
+.selected {
+    background-color: orange;
+}
+
+.piece-black img, .piece-white img {
+    width: 100%;
 }

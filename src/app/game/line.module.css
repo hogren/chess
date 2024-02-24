@@ -3,3 +3,7 @@
     padding: 0;
     margin: 0;
 }
+
+.header {
+    margin: auto 0.4em auto 0;
+}

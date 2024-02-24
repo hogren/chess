@@ -1,0 +1,10 @@
+.header-line {
+    display: flex;
+    padding: 0;
+    margin: 0 0 0.4em 0;
+}
+
+.header-line span {
+    width: 5em;
+    text-align: center;
+}

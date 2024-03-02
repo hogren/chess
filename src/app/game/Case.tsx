@@ -4,26 +4,18 @@ import { useContext } from 'react'
 import { SelectedContext } from './SelectedContext'
 import { UpdateSelectedContext } from './SelectedContext'
 import styles from './case.module.css'
+import getImageUrl from '../../utils/getImageUrl'
+
+type Piece = {
+  piece: string;
+  color: string;
+};
 
 type Props = {
   color: string;
-  piece?: {
-    piece: string;
-    color: string;
-  };
+  piece?: Piece;
   lineNumber: number;
   columnLetter: string;
-}
-
-const getImageUrl = (color: string, piece: string): string => {
-  let url = '/chess_pieces/Chess_' + piece;
-  if ('white' === color) {
-    url += 'l';
-  } else {
-    url += 'd';
-  }
-  url += 't45.svg.png';
-  return url;
 }
 
 export default function Case({ color, piece, lineNumber, columnLetter }: Props) {
@@ -34,7 +26,6 @@ export default function Case({ color, piece, lineNumber, columnLetter }: Props) 
     if (undefined !== update) {
       update(columnLetter, lineNumber);
     }
-    console.log(columnLetter, lineNumber);
   }
 
   const selected = lineNumber === selectedLine && columnLetter === selectedColumn;

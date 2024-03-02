@@ -2,13 +2,13 @@
 
 import Line from './Line'
 import HeaderLine from './HeaderLine'
-type LineOpts = {
-  number: number;
-}
 import { SelectedContext } from './SelectedContext'
 import { UpdateSelectedContext } from './SelectedContext'
 import { useState } from 'react'
 
+type LineOpts = {
+  number: number;
+}
 const lines: LineOpts[] = [];
 
 for (let i = 8; i > 0; i--) {
@@ -16,8 +16,8 @@ for (let i = 8; i > 0; i--) {
 }
 
 export default function ChessBoard() {
-  const [selectedColumn, setSelectedColumn] = useState<string | undefined>('A');
-  const [selectedLine, setSelectedLine] = useState<number | undefined>(7);
+  const [selectedColumn, setSelectedColumn] = useState<string | undefined>(undefined);
+  const [selectedLine, setSelectedLine] = useState<number | undefined>(undefined);
 
   const handleSelect = (column: string, line: number) => {
     setSelectedColumn(column);

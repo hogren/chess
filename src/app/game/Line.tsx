@@ -16,10 +16,9 @@ for (let i = 0; i < 8; i++) {
 
 type Props = {
   number: number;
-  selectedColumn?: string;
 }
 
-export default function Line({ number, selectedColumn, onSelect }: Props) {
+export default function Line({ number }: Props) {
   const map = useBoardMap();
   return (
     <div className={styles.line}>

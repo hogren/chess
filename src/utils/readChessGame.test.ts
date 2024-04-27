@@ -24,7 +24,7 @@ test('one ply', () => {
 });
 
 test('one full move', () => {
-  const resultBoard = readChessGame(getStartBoard(), "c2c3 g8f6");
+  const resultBoard = readChessGame(getStartBoard(), "d2d3 g8f6");
 
   const expectedBoard = normalize([
     'RbNbBbQbKbBb. Rb',
@@ -32,8 +32,8 @@ test('one full move', () => {
     '. . . . . Nb. . ',
     '. . . . . . . . ',
     '. . . . . . . . ',
-    '. . Pw. . . . . ',
-    'PwPw. PwPwPwPwPw',
+    '. . . Pw. . . . ',
+    'PwPwPw. PwPwPwPw',
     'RwNwBwQwKwBwNwRw',
   ]);
 

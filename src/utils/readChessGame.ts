@@ -59,10 +59,11 @@ function decomposePly(ply: string) {
 export function readChessGame(board: Board, moves: string): Board {
   const newBoard: Board = copyBoard(board);
 
-  if (0 < moves.length) {
-    const ply = decomposePly(moves.substring(0, 4));
+  for (let i = 0; i + 4 <= moves.length; i += 5) {
+    const ply = decomposePly(moves.substring(i, i + 4));
     newBoard[ply.to.row][ply.to.col] = board[ply.from.row][ply.from.col];
     newBoard[ply.from.row][ply.from.col] = null;
   }
+
   return newBoard;
 }

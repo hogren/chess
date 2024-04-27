@@ -1,4 +1,4 @@
-import { readChessGame, Board, Piece } from './readChessGame'
+import { readChessGame, Board, Piece, getEmptyBoard } from './readChessGame'
 
 test('no move', () => {
   const initialBoard = getStartBoard();
@@ -24,16 +24,7 @@ test('one move', () => {
 });
 
 const normalize = (board: string[]): Board => {
-  const result: Board = [
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null]
-  ];
+  const result: Board = getEmptyBoard();
   for (let i = 7; i >= 0; i--) {
     for (let j = 0; j < 16; j += 2) {
       const color = board[i].substr(j + 1, 1);
@@ -56,7 +47,6 @@ const denormalize = (board: Board): string[] => {
       if (null === place) {
         output[i] += '. ';
       } else {
-        //        console.log('place', place);
         output[i] += place.code;
         output[i] += 'black' === place.color ? 'b' : 'w';
       }

@@ -3,7 +3,7 @@ import { readChessGame, Board, Piece, getEmptyBoard } from './readChessGame'
 test('no move', () => {
   const initialBoard = getStartBoard();
   const resultBoard = readChessGame(initialBoard, "");
-  expect(resultBoard).toEqual(initialBoard);
+  assertBoardsAreEquals(initialBoard, resultBoard);
 });
 
 test('one ply', () => {
@@ -37,7 +37,7 @@ test('one full move', () => {
     'RwNwBwQwKwBwNwRw',
   ]);
 
-  expect(resultBoard).toEqual(expectedBoard);
+  assertBoardsAreEquals(expectedBoard, resultBoard);
 });
 
 const normalize = (board: string[]): Board => {
@@ -85,4 +85,23 @@ const getStartBoard = () => {
   ];
 
   return normalize(initialBoard);
+}
+
+function assertBoardsAreEquals(expected: Board, actual: Board): true {
+  for (let rowNum = 0; rowNum < 8; rowNum++) {
+    for (let colNum = 0; colNum < 8; colNum++) {
+      if (
+        (null === expected[rowNum][colNum] && null !== actual[rowNum][colNum]) ||
+        (null !== expected[rowNum][colNum] && null === actual[rowNum][colNum]) ||
+        (expected[rowNum][colNum]?.code !== actual[rowNum][colNum]?.code) ||
+        (expected[rowNum][colNum]?.color !== actual[rowNum][colNum]?.color)
+      ) {
+        console.error('expected:', denormalize(expected));
+        console.error('actual:', denormalize(actual));
+        const colLetter = String.fromCharCode(colNum + 97);
+        throw new Error(`Boards are not equals, see position ${colLetter}${rowNum} !`);
+      }
+    }
+  }
+  return true;
 }

@@ -16,11 +16,11 @@ export default function useBoardMap(): BoardMap {
         color: 'white',
       },
       {
-        piece: 'k',
+        piece: 'q',
         color: 'white',
       },
       {
-        piece: 'q',
+        piece: 'k',
         color: 'white',
       },
       {
@@ -122,11 +122,11 @@ export default function useBoardMap(): BoardMap {
         color: 'black',
       },
       {
-        piece: 'k',
+        piece: 'q',
         color: 'black',
       },
       {
-        piece: 'q',
+        piece: 'k',
         color: 'black',
       },
       {

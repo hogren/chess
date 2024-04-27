@@ -6,13 +6,30 @@ test('no move', () => {
   expect(resultBoard).toEqual(initialBoard);
 });
 
-test('one move', () => {
+test('one ply', () => {
   const resultBoard = readChessGame(getStartBoard(), "c2c3");
 
   const expectedBoard = normalize([
     'RbNbBbQbKbBbNbRb',
     'PbPbPbPbPbPbPbPb',
     '. . . . . . . . ',
+    '. . . . . . . . ',
+    '. . . . . . . . ',
+    '. . Pw. . . . . ',
+    'PwPw. PwPwPwPwPw',
+    'RwNwBwQwKwBwNwRw',
+  ]);
+
+  expect(resultBoard).toEqual(expectedBoard);
+});
+
+test('one full move', () => {
+  const resultBoard = readChessGame(getStartBoard(), "c2c3 g8f6");
+
+  const expectedBoard = normalize([
+    'RbNbBbQbKbBb. Rb',
+    'PbPbPbPbPbPbPbPb',
+    '. . . . . Nb. . ',
     '. . . . . . . . ',
     '. . . . . . . . ',
     '. . Pw. . . . . ',

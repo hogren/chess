@@ -41,9 +41,9 @@ function copyBoard(source: Board): Board {
   return newBoard;
 }
 
-function decomposeMove(move: string) {
-  const posFrom = move.substring(0, 2);
-  const posTo = move.substring(2, 4);
+function decomposePly(ply: string) {
+  const posFrom = ply.substring(0, 2);
+  const posTo = ply.substring(2, 4);
   return {
     from: {
       row: 8 - Number(posFrom.substring(1, 2)),
@@ -60,9 +60,9 @@ export function readChessGame(board: Board, moves: string): Board {
   const newBoard: Board = copyBoard(board);
 
   if (0 < moves.length) {
-    const move = decomposeMove(moves.substring(0, 4));
-    newBoard[move.to.row][move.to.col] = board[move.from.row][move.from.col];
-    newBoard[move.from.row][move.from.col] = null;
+    const ply = decomposePly(moves.substring(0, 4));
+    newBoard[ply.to.row][ply.to.col] = board[ply.from.row][ply.from.col];
+    newBoard[ply.from.row][ply.from.col] = null;
   }
   return newBoard;
 }

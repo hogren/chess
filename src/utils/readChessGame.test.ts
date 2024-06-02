@@ -40,6 +40,23 @@ test('one full move', () => {
   assertBoardsAreEquals(expectedBoard, resultBoard);
 });
 
+test('a entire game', () => {
+  const resultBoard = readChessGame(getStartBoard(), "e2e4 e7e5\nd1f3 b8c6\nf1c5 d8g5\nf3f7");
+
+  const expectedBoard = normalize([
+    'Rb. Bb. KbBbNbRb',
+    'PbPbPbPb. QwPbPb',
+    '. . Nb. . . . . ',
+    '. . Bw. Pb. Qb. ',
+    '. . . . Pw. . . ',
+    '. . . . . . . . ',
+    'PwPwPwPw. PwPwPw',
+    'RwNwBw. Kw. NwRw',
+  ]);
+
+  assertBoardsAreEquals(expectedBoard, resultBoard);
+});
+
 const normalize = (board: string[]): Board => {
   const result: Board = getEmptyBoard();
   for (let i = 7; i >= 0; i--) {

@@ -1,17 +1,5 @@
 import { BoardMap } from '../model/BoardMap';
-
-export function getEmptyBoard(): BoardMap {
-  return [
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null]
-  ];
-}
+import { getEmptyBoard } from '../utils/boardMapHelper'
 
 function copyBoard(source: BoardMap): BoardMap {
   const newBoard: BoardMap = getEmptyBoard();

@@ -1,5 +1,5 @@
-export default function getImageUrl(color: string, piece: string): string {
-  let url = '/chess_pieces/Chess_' + piece;
+export default function getImageUrl(color: string, pieceCode: string): string {
+  let url = '/chess_pieces/Chess_' + pieceCode.toLowerCase();
   if ('white' === color) {
     url += 'l';
   } else {

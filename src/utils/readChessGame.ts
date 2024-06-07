@@ -1,22 +1,6 @@
-export type Piece = {
-  code?: string;
-  color: 'black' | 'white';
-}
+import { BoardMap } from '../model/BoardMap';
 
-export type BoardLine = [Piece | null, Piece | null, Piece | null, Piece | null, Piece | null, Piece | null, Piece | null, Piece | null];
-
-export type Board = [
-  BoardLine,
-  BoardLine,
-  BoardLine,
-  BoardLine,
-  BoardLine,
-  BoardLine,
-  BoardLine,
-  BoardLine
-];
-
-export function getEmptyBoard(): Board {
+export function getEmptyBoard(): BoardMap {
   return [
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
@@ -29,8 +13,8 @@ export function getEmptyBoard(): Board {
   ];
 }
 
-function copyBoard(source: Board): Board {
-  const newBoard: Board = getEmptyBoard();
+function copyBoard(source: BoardMap): BoardMap {
+  const newBoard: BoardMap = getEmptyBoard();
 
   for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 8; j++) {
@@ -44,6 +28,8 @@ function copyBoard(source: Board): Board {
 function decomposePly(ply: string) {
   const posFrom = ply.substring(0, 2);
   const posTo = ply.substring(2, 4);
+  console.log('posFrom', posFrom)
+  console.log('posTo', posTo)
   return {
     from: {
       row: 8 - Number(posFrom.substring(1, 2)),
@@ -56,13 +42,14 @@ function decomposePly(ply: string) {
   };
 }
 
-export function readChessGame(board: Board, moves: string): Board {
+export function readChessGame(board: BoardMap, moves: string): BoardMap {
   let oldBoard = board;
-  let newBoard: Board = oldBoard;
-
+  let newBoard: BoardMap = oldBoard;
+  console.log('moves', moves);
   for (let i = 0; i + 4 <= moves.length; i += 5) {
     newBoard = copyBoard(oldBoard);
     const ply = decomposePly(moves.substring(i, i + 4));
+    console.log('ply', ply);
     newBoard[ply.to.row][ply.to.col] = oldBoard[ply.from.row][ply.from.col];
     newBoard[ply.from.row][ply.from.col] = null;
     oldBoard = newBoard;

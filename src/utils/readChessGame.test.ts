@@ -1,4 +1,4 @@
-import { readChessGame, Board, Piece, getEmptyBoard } from './readChessGame'
+import { readChessGame, BoardMap, Piece, getEmptyBoard } from './readChessGame'
 
 test('no move', () => {
   const initialBoard = getStartBoard();
@@ -57,8 +57,8 @@ test('a entire game', () => {
   assertBoardsAreEquals(expectedBoard, resultBoard);
 });
 
-const normalize = (board: string[]): Board => {
-  const result: Board = getEmptyBoard();
+const normalize = (board: string[]): BoardMap => {
+  const result: BoardMap = getEmptyBoard();
   for (let i = 7; i >= 0; i--) {
     for (let j = 0; j < 16; j += 2) {
       const color = board[i].substr(j + 1, 1);
@@ -73,7 +73,7 @@ const normalize = (board: string[]): Board => {
   return result;
 }
 
-const denormalize = (board: Board): string[] => {
+const denormalize = (board: BoardMap): string[] => {
   let output = ["", "", "", "", "", "", "", ""];
   for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 8; j++) {
@@ -104,7 +104,7 @@ const getStartBoard = () => {
   return normalize(initialBoard);
 }
 
-function assertBoardsAreEquals(expected: Board, actual: Board): true {
+function assertBoardsAreEquals(expected: BoardMap, actual: BoardMap): true {
   for (let rowNum = 0; rowNum < 8; rowNum++) {
     for (let colNum = 0; colNum < 8; colNum++) {
       if (

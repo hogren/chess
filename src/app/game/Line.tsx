@@ -1,6 +1,6 @@
 import Case from './Case'
 import styles from './line.module.css'
-import useBoardMap from '../../hooks/useBoardMap'
+import { BoardMap } from '../../model/BoardMap'
 
 type CaseOpts = {
   number: number;
@@ -16,20 +16,20 @@ for (let i = 0; i < 8; i++) {
 
 type Props = {
   number: number;
-  selectedColumn?: string;
+  boardMap: BoardMap;
 }
 
-export default function Line({ number, selectedColumn, onSelect }: Props) {
-  const map = useBoardMap();
+export default function Line({ number, boardMap }: Props) {
   return (
     <div className={styles.line}>
       <span className={styles.header}>{number}</span>
       {cases.map((caseOpts) =>
         <Case
           color={0 === (number + caseOpts.number) % 2 ? 'white' : 'black'}
-          piece={map[number - 1][caseOpts.number]}
+          piece={boardMap[number - 1][caseOpts.number]}
           lineNumber={number}
-          columnLetter={['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'][caseOpts.number]}
+          columnLetter={['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'][caseOpts.number]}
+          key={number + ' ' + caseOpts.number}
         />
       )}
     </div>

@@ -1,3 +1,3 @@
-import { BoardCase } from './BoardCase';
+import { Piece } from './Piece';
 
-export type BoardLine = BoardCase[];
+export type BoardLine = [Piece | null, Piece | null, Piece | null, Piece | null, Piece | null, Piece | null, Piece | null, Piece | null];

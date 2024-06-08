@@ -1,4 +1,7 @@
-import { readChessGame, BoardMap, Piece, getEmptyBoard } from './readChessGame'
+import { readChessGame } from './readChessGame'
+import { getEmptyBoard } from './boardMapHelper'
+import { BoardMap } from '../model/BoardMap'
+import { Piece } from '../model/Piece'
 
 test('no move', () => {
   const initialBoard = getStartBoard();

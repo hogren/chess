@@ -20,11 +20,11 @@ function decomposePly(ply: string) {
   console.log('posTo', posTo)
   return {
     from: {
-      row: 8 - Number(posFrom.substring(1, 2)),
+      row: Number(posFrom.substring(1, 2)) - 1,
       col: posFrom.substring(0, 1).charCodeAt(0) - 97,
     },
     to: {
-      row: 8 - Number(posTo.substring(1, 2)),
+      row: Number(posTo.substring(1, 2)) - 1,
       col: posTo.substring(0, 1).charCodeAt(0) - 97
     }
   };
@@ -33,11 +33,9 @@ function decomposePly(ply: string) {
 export function readChessGame(board: BoardMap, moves: string): BoardMap {
   let oldBoard = board;
   let newBoard: BoardMap = oldBoard;
-  console.log('moves', moves);
   for (let i = 0; i + 4 <= moves.length; i += 5) {
     newBoard = copyBoard(oldBoard);
     const ply = decomposePly(moves.substring(i, i + 4));
-    console.log('ply', ply);
     newBoard[ply.to.row][ply.to.col] = oldBoard[ply.from.row][ply.from.col];
     newBoard[ply.from.row][ply.from.col] = null;
     oldBoard = newBoard;

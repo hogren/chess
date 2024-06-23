@@ -1,7 +1,6 @@
 import { readChessGame } from './readChessGame'
-import { getEmptyBoard } from './boardMapHelper'
+import { getStartBoard, normalize, denormalize } from './boardMapHelper'
 import { BoardMap } from '../model/BoardMap'
-import { Piece } from '../model/Piece'
 
 test('no move', () => {
   const initialBoard = getStartBoard();
@@ -59,53 +58,6 @@ test('a entire game', () => {
 
   assertBoardsAreEquals(expectedBoard, resultBoard);
 });
-
-const normalize = (board: string[]): BoardMap => {
-  const result: BoardMap = getEmptyBoard();
-  for (let i = 7; i >= 0; i--) {
-    for (let j = 0; j < 16; j += 2) {
-      const color = board[i].substr(j + 1, 1);
-      if (' ' !== color) {
-        result[i][j / 2] = {
-          color: 'b' === color ? 'black' : 'white',
-          code: board[i].substr(j, 1)
-        } as Piece;
-      }
-    }
-  }
-  return result;
-}
-
-const denormalize = (board: BoardMap): string[] => {
-  let output = ["", "", "", "", "", "", "", ""];
-  for (let i = 0; i < 8; i++) {
-    for (let j = 0; j < 8; j++) {
-      const place = board[i][j];
-      if (null === place) {
-        output[i] += '. ';
-      } else {
-        output[i] += place.code;
-        output[i] += 'black' === place.color ? 'b' : 'w';
-      }
-    }
-  }
-  return output;
-}
-
-const getStartBoard = () => {
-  const initialBoard = [
-    'RbNbBbQbKbBbNbRb',
-    'PbPbPbPbPbPbPbPb',
-    '. . . . . . . . ',
-    '. . . . . . . . ',
-    '. . . . . . . . ',
-    '. . . . . . . . ',
-    'PwPwPwPwPwPwPwPw',
-    'RwNwBwQwKwBwNwRw',
-  ];
-
-  return normalize(initialBoard);
-}
 
 function assertBoardsAreEquals(expected: BoardMap, actual: BoardMap): true {
   for (let rowNum = 0; rowNum < 8; rowNum++) {

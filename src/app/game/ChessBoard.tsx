@@ -30,13 +30,21 @@ export default function ChessBoard() {
   if (undefined === map) {
     if (null === gameId) {
       setMap(getStartBoard());
+    } else {
+      fetch('/game/board/' + gameId)
+        .then((res) => {
+          if (res.status !== 200) {
+            res.json().then((json) => {
+              console.error(res.status + ": " + json?.error);
+              setMap(getStartBoard());
+            });
+          } else {
+            res.json().then((json) => {
+              setMap(json);
+            });
+          }
+        });
     }
-
-    fetch('/game/board/' + gameId).then((res) => {
-      res.json().then((json) => {
-        setMap(json);
-      });
-    });
     return null;
   }
 

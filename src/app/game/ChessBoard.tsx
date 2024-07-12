@@ -54,11 +54,21 @@ export default function ChessBoard() {
       setSelectedLine(line);
     } else {
       const move = '' + selectedColumn + (selectedLine) + column + (line);
+      fetch('/game/board/' + gameId + '/update', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ move: move }),
+      }).then((res) => {
+        if (200 === res.status) {
+          setMap(readChessGame(map, move));
+        }
+      }).finally(() => {
+        setSelectedColumn(undefined);
+        setSelectedLine(undefined);
+      });
 
-      setMap(readChessGame(map, move));
-
-      setSelectedColumn(undefined);
-      setSelectedLine(undefined);
     }
   }
 

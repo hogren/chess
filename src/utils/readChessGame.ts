@@ -16,8 +16,6 @@ function copyBoard(source: BoardMap): BoardMap {
 function decomposePly(ply: string) {
   const posFrom = ply.substring(0, 2);
   const posTo = ply.substring(2, 4);
-  console.log('posFrom', posFrom)
-  console.log('posTo', posTo)
   return {
     from: {
       row: Number(posFrom.substring(1, 2)) - 1,

@@ -43,7 +43,6 @@ export function denormalize(board: BoardMap): string[] {
       }
     }
   }
-  console.log(output);
   return output;
 }
 

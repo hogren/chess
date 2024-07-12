@@ -17,5 +17,5 @@ export async function GET(request: NextRequest, { params }: Params) {
     return NextResponse.json({ error: "No game found." }, { status: 404 });
   }
 
-  return NextResponse.json(readChessGame(getStartBoard(), rows[0].history));
+  return NextResponse.json(readChessGame(getStartBoard(), rows[0].history ?? ''));
 }

@@ -1,5 +1,5 @@
 import { getStartBoard } from '../../../../utils/boardMapHelper'
-import { readChessGame } from '../../../../utils/readChessGame.ts'
+import { readChessGame } from '../../../../utils/readChessGame'
 import { NextResponse, NextRequest } from 'next/server'
 import pool from '../../../../utils/db';
 import { RowDataPacket } from 'mysql2';

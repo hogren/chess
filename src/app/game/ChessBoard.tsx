@@ -31,7 +31,7 @@ export default function ChessBoard() {
     if (null === gameId) {
       setMap(getStartBoard());
     } else {
-      fetch('/game/board/' + gameId)
+      fetch('/game/board/' + gameId + '/')
         .then((res) => {
           if (res.status !== 200) {
             res.json().then((json) => {

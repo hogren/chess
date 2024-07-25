@@ -1,4 +1,4 @@
-import pool from '../../../../../utils/db';
+import Database from '../../../../../utils/db';
 import { NextRequest, NextResponse } from 'next/server'
 
 type Params = {
@@ -9,6 +9,6 @@ type Params = {
 
 export async function POST(request: NextRequest, { params }: Params) {
   const body = await request.json();
-  const result = await pool.query('UPDATE chess_game SET history = CONCAT(IFNULL(history, ""), IF(ISNULL(history), "", " "), ?) WHERE token LIKE ?', [body.move, params.gameId]);
+  const [result,] = await Database.execute('UPDATE chess_game SET history = CONCAT(IFNULL(history, ""), IF(ISNULL(history), "", " "), ?) WHERE id LIKE ?', [body.move, params.gameId]);
   return NextResponse.json({});
 }

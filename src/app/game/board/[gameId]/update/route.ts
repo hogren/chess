@@ -1,4 +1,4 @@
-import Database from '@/utils/db';
+import { addMove } from '@/utils/addMove';
 import { NextRequest, NextResponse } from 'next/server'
 
 type Params = {
@@ -9,6 +9,6 @@ type Params = {
 
 export async function POST(request: NextRequest, { params }: Params) {
   const body = await request.json();
-  const [result,] = await Database.execute('UPDATE chess_game SET history = CONCAT(IFNULL(history, ""), IF(ISNULL(history), "", " "), ?) WHERE id LIKE ?', [body.move, params.gameId]);
+  await addMove(Number(params.gameId), body.move);
   return NextResponse.json({});
 }

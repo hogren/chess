@@ -1,5 +1,5 @@
-import { BoardMap } from '../model/BoardMap';
-import { Piece } from '../model/Piece';
+import { BoardMap } from '@/model/BoardMap';
+import { Piece } from '@/model/Piece';
 
 export function getEmptyBoard(): BoardMap {
   return [

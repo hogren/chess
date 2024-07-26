@@ -1,5 +1,5 @@
-import { BoardMap } from '../model/BoardMap';
-import { getEmptyBoard } from '../utils/boardMapHelper'
+import { BoardMap } from '@/model/BoardMap';
+import { getEmptyBoard } from '@/utils/boardMapHelper'
 
 function copyBoard(source: BoardMap): BoardMap {
   const newBoard: BoardMap = getEmptyBoard();

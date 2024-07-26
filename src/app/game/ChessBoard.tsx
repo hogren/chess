@@ -4,9 +4,9 @@ import HeaderLine from './HeaderLine'
 import { SelectedContext } from './SelectedContext'
 import { UpdateSelectedContext } from './SelectedContext'
 import { useState } from 'react'
-import { readChessGame } from '../../utils/readChessGame'
-import { getStartBoard, denormalize } from '../../utils/boardMapHelper'
-import { BoardMap } from '../../model/BoardMap';
+import { readChessGame } from '@/utils/readChessGame'
+import { getStartBoard, denormalize } from '@/utils/boardMapHelper'
+import { BoardMap } from '@/model/BoardMap';
 import { useSearchParams } from 'next/navigation'
 
 type LineOpts = {

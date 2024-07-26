@@ -1,7 +1,7 @@
-import { getStartBoard } from '../../../../utils/boardMapHelper'
-import { readChessGame } from '../../../../utils/readChessGame'
+import { getStartBoard } from '@/utils/boardMapHelper'
+import { readChessGame } from '@/utils/readChessGame'
 import { NextResponse, NextRequest } from 'next/server'
-import DataBase from '../../../../utils/db';
+import DataBase from '@/utils/db';
 import { FieldPacket, QueryResult, RowDataPacket } from 'mysql2';
 
 type Params = {

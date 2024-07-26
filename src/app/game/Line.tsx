@@ -1,6 +1,6 @@
 import Case from './Case'
 import styles from './line.module.css'
-import { BoardMap } from '../../model/BoardMap'
+import { BoardMap } from '@/model/BoardMap'
 
 type CaseOpts = {
   number: number;

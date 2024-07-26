@@ -1,6 +1,6 @@
 import { readChessGame } from './readChessGame'
 import { getStartBoard, normalize, denormalize } from './boardMapHelper'
-import { BoardMap } from '../model/BoardMap'
+import { BoardMap } from '@/model/BoardMap'
 
 test('no move', () => {
   const initialBoard = getStartBoard();

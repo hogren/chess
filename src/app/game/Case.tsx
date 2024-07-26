@@ -3,9 +3,9 @@
 import { useContext } from 'react'
 import { SelectedContext } from './SelectedContext'
 import { UpdateSelectedContext } from './SelectedContext'
-import { Piece } from '../../model/Piece'
+import { Piece } from '@/model/Piece'
 import styles from './case.module.css'
-import getImageUrl from '../../utils/getImageUrl'
+import getImageUrl from '@/utils/getImageUrl'
 
 type Props = {
   color: string;

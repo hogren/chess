@@ -1,5 +1,5 @@
 import { normalize, denormalize } from './boardMapHelper'
-import { BoardMap } from '../model/BoardMap'
+import { BoardMap } from '@/model/BoardMap'
 
 test('normalize denormalize', () => {
   const denormalizedBoard = [

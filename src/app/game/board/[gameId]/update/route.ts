@@ -1,4 +1,4 @@
-import Database from '../../../../../utils/db';
+import Database from '@/utils/db';
 import { NextRequest, NextResponse } from 'next/server'
 
 type Params = {

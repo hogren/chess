@@ -5,5 +5,6 @@
   * Do not accept invalid move
   * Autorefresh when the player is waiting for the other player
   * Show moves list
-  * Be able to visually show a previous state of the chess board
-  * Analyse security around the generation of games
+  * Be able to show a previous state of the chess board
+  * Analyze security around the generation of games
+  * Reverse the board for the black player

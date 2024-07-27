@@ -9,6 +9,10 @@ type Params = {
 
 export async function POST(request: NextRequest, { params }: Params) {
   const body = await request.json();
-  await addMove(Number(params.gameId), body.move);
-  return NextResponse.json({});
+  const success = await addMove(Number(params.gameId), body.move);
+  if (success) {
+    return NextResponse.json({});
+  } else {
+    return NextResponse.json({ error: "Forbidden move." }, { status: 400 });
+  }
 }

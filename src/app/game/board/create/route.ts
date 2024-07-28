@@ -10,5 +10,9 @@ export async function GET() {
     return NextResponse.json({ error: "Problem to create a game." }, { status: 404 });
   }
 
-  return NextResponse.json({ link: '/game?id=' + game.id });
+  return NextResponse.json({
+    gameId: game.id,
+    blackToken: game.blackToken,
+    whiteToken: game.whiteToken,
+  });
 }

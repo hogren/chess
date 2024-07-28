@@ -1,7 +1,7 @@
 import { getStartBoard } from '@/utils/boardMapHelper'
 import { readChessGame } from '@/utils/readChessGame'
 import { NextResponse, NextRequest } from 'next/server'
-import { getChessGameHistory } from '@/utils/getChessGame';
+import { getChessGameHistory } from '@/utils/getChessGameHistory';
 
 type Params = {
   params: {

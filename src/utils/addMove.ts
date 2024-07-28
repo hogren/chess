@@ -1,5 +1,5 @@
 import Database from '@/utils/db';
-import { getChessGameHistory } from './getChessGame';
+import { getChessGameHistory } from './getChessGameHistory';
 import { checkMove } from './checkMove';
 
 export async function addMove(gameId: number, move: string): Promise<boolean> {

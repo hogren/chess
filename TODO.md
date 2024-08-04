@@ -8,3 +8,4 @@
   * Be able to show a previous state of the chess board
   * Analyze security around the generation of games
   * Reverse the board for the black player
+  * Use a pop-up to show errors messages

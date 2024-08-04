@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './page.module.css'
 import Button from '@/dsm/Button';
 import InfoDiv from '@/dsm/InfoDiv';

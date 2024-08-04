@@ -1,0 +1,50 @@
+.container {
+  color: #fff;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 24px;
+  margin: 0 0 5em 0;
+  padding: 19px 26px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 19px 32px;
+  }
+}
+
+.container:before,
+.container:after {
+  border-radius: 30px;
+}
+
+.container:before {
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.container:after {
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+

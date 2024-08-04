@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './page.module.css'
 import Button from '@/dsm/Button';
+import InfoDiv from '@/dsm/InfoDiv';
 
 export default function Home() {
   const [gameId, setGameId] = useState<number | null>(null);
@@ -26,14 +28,14 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Button onClick={goToNewGame} title={"Create a game"} />
+      {null === gameId && <Button onClick={goToNewGame} title={"Create a game"} />}
       {
-        null !== gameId && <div>
+        null !== gameId && <InfoDiv>
           <div>Game ID : {gameId}</div>
-          <div>Black token : {blackToken}</div>
-          <div>White token : {whiteToken}</div>
-        </div>
+          <div>Black token : <a href={"/game?id=" + gameId + "&black_token=" + blackToken}>{blackToken}</a></div>
+          <div>White token : <a href={"/game?id=" + gameId + "&white_token=" + whiteToken}>{whiteToken}</a></div>
+        </InfoDiv >
       }
-    </main>
+    </main >
   )
 }

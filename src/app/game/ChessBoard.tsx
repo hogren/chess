@@ -21,6 +21,8 @@ for (let i = 8; i > 0; i--) {
 export default function ChessBoard() {
   const searchParams = useSearchParams()
   const gameId = searchParams.get('id');
+  const player = searchParams.get('player');
+  const token = searchParams.get('token');
 
   const [selectedColumn, setSelectedColumn] = useState<string | undefined>(undefined);
   const [selectedLine, setSelectedLine] = useState<number | undefined>(undefined);
@@ -31,7 +33,7 @@ export default function ChessBoard() {
     if (null === gameId) {
       setMap(getStartBoard());
     } else {
-      fetch('/game/board/' + gameId + '/')
+      fetch('/game/board/' + gameId + '?player=' + player + '&token=' + token)
         .then((res) => {
           if (res.status !== 200) {
             res.json().then((json) => {
